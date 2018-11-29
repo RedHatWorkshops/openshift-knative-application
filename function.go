@@ -27,7 +27,7 @@ func dump(w http.ResponseWriter, r *http.Request) {
 	// Simulate at least a bit of processing time.
 	time.Sleep(100 * time.Millisecond)
 
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusInternalServerError)
 	if reqBytes, err := httputil.DumpRequest(r, true); err == nil {
 		log.Printf("Openshift Http Request Dumper received a message: %+v", string(reqBytes))
 		w.Write(reqBytes)
